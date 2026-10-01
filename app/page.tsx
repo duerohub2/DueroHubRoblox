@@ -59,14 +59,14 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="border-b-4 border-brutal-ink bg-[#1C1F22]">
+      <section className="border-b-4 border-black bg-[#FFDE59]">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
-          <h1 className="font-display text-5xl uppercase tracking-tight text-brutal-yellow sm:text-7xl">
+          <h1 className="inline-block border-4 border-black bg-white px-6 py-4 font-display text-4xl uppercase tracking-tight text-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] sm:text-7xl">
             DUEROHUB
           </h1>
-          <p className="mt-5 max-w-xl font-body text-base text-white/80 sm:text-lg">
+          <div className="mt-6 max-w-xl border-2 border-black bg-white px-5 py-4 font-body text-base font-bold text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:text-lg">
             Duerohub. Built for players who demand elite, verified Roblox scripts with zero fluff.
-          </p>
+          </div>
         </div>
       </section>
 
