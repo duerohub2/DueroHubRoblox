@@ -75,10 +75,10 @@ export default function HomePage() {
       {/* HERO */}
       <section className="border-b-[8px] border-black bg-[#FFE500] py-12 md:py-16">
         <div className="mx-auto max-w-md p-3 sm:max-w-xl md:max-w-4xl md:p-6">
-          <h1 className="font-display text-4xl font-black uppercase leading-[0.95] tracking-tighter text-white [text-shadow:6px_6px_0px_#000,-2px_-2px_0_#000,2px_-2px_0_#000,-2px_2px_0_#000,2px_2px_0_#000] sm:text-6xl md:text-8xl">
+          <h1 className="font-display text-3xl font-black uppercase leading-[1] tracking-tighter text-white [text-shadow:6px_6px_0px_#000,-2px_-2px_0_#000,2px_-2px_0_#000,-2px_2px_0_#000,2px_2px_0_#000] sm:text-5xl md:text-7xl">
             DUEROHUB
           </h1>
-          <div className="mt-8 max-w-xl border-4 border-black bg-white p-5 text-base font-bold text-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] md:p-6 md:text-lg">
+          <div className="mt-6 max-w-xl border-4 border-black bg-white p-4 text-sm font-bold text-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] sm:p-5 sm:text-base">
             Duerohub. Built for players who demand elite, verified Roblox scripts with zero fluff.
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`font-display border-4 border-black px-4 py-2 font-black uppercase tracking-wide shadow-[6px_6px_0_0_#000] transition-all active:translate-x-[6px] active:translate-y-[6px] active:shadow-none ${
+                  className={`font-display border-4 border-black px-3 py-1.5 text-xs font-black uppercase tracking-wide shadow-[6px_6px_0_0_#000] transition-all active:translate-x-[6px] active:translate-y-[6px] active:shadow-none sm:px-4 sm:py-2 sm:text-sm ${
                     isActive ? "bg-black text-white" : `${chip.bg} ${chip.text}`
                   }`}
                 >
