@@ -39,6 +39,7 @@ export default function RootLayout({
 
           {/* MENU DI KANAN ATAS */}
           <nav className="flex flex-row flex-wrap justify-end items-center gap-2 md:gap-4 text-xs md:text-sm font-bold">
+            <Link href="/" className="px-2 py-1 md:px-3 md:py-1.5 border-2 border-black bg-white hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">HOME</Link>
             <Link href="/trending" className="px-2 py-1 md:px-3 md:py-1.5 border-2 border-black bg-white hover:bg-black hover:text-white transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">TRENDING</Link>
             <Link href="/upload" className="px-2 py-1 md:px-3 md:py-1.5 border-2 border-black bg-[#FF5757] text-white hover:bg-black transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">UPLOAD</Link>
             <Link href="/login" className="px-2 py-1 md:px-3 md:py-1.5 border-2 border-black bg-[#578FFF] text-white hover:bg-black transition shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">LOGIN</Link>
