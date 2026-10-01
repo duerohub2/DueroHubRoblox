@@ -38,9 +38,8 @@ export default function UploadPage() {
             >
               Login
             </Link>
-            {/* TODO: arahkan ke halaman register khusus begitu halaman itu dibuat */}
             <Link
-              href="/login"
+              href="/register"
               className="flex-1 border-[3px] border-black bg-black px-5 py-3 font-display text-xs uppercase tracking-wide text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-transform hover:-translate-y-0.5"
             >
               Create Account
