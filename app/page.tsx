@@ -22,8 +22,6 @@ const scripts: Script[] = [
   { id: "6", title: "Boss Radar", author: "Bagus", game: "Blox Fruits", status: "Verified" },
 ];
 
-// Mapping kategori game -> thumbnail. Idealnya diambil dari database yang
-// diisi lewat Admin Dashboard (lihat app/admin/page.tsx), bukan di-hardcode.
 const gameThumbnails: Record<string, string> = {
   "Blox Fruits": "https://placehold.co/600x360/2F6FFF/FFFFFF?text=Blox+Fruits",
   "Steal an Egg": "https://placehold.co/600x360/FF4D8D/FFFFFF?text=Steal+an+Egg",
@@ -38,9 +36,9 @@ function getThumbnail(game: string) {
 }
 
 const statusStyle: Record<Status, string> = {
-  Verified: "bg-brutal-lime text-brutal-ink",
-  Testing: "bg-brutal-orange text-white",
-  Updated: "bg-brutal-blue text-white",
+  Verified: "bg-[#C6FF3D] text-black",
+  Testing: "bg-[#FF8A00] text-white",
+  Updated: "bg-[#2F6FFF] text-white",
 };
 
 const categories = ["Semua", ...Array.from(new Set(scripts.map((s) => s.game)))];
@@ -59,35 +57,35 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="border-b-4 border-black bg-[#FFDE59]">
+      {/* HERO — SUPER BRUTAL */}
+      <section className="border-b-[8px] border-black bg-[#FFDF00]">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:py-24">
-          <h1 className="inline-block border-4 border-black bg-white px-6 py-4 font-display text-4xl uppercase tracking-tight text-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] sm:text-7xl">
+          <h1 className="font-display font-black text-7xl uppercase leading-[0.9] tracking-tighter text-white [text-shadow:6px_6px_0px_#000,-2px_-2px_0_#000,2px_-2px_0_#000,-2px_2px_0_#000,2px_2px_0_#000] md:text-9xl">
             DUEROHUB
           </h1>
-          <div className="mt-6 max-w-xl border-2 border-black bg-white px-5 py-4 font-body text-base font-bold text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:text-lg">
+          <div className="mt-8 max-w-xl border-4 border-black bg-white p-6 text-lg font-bold text-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
             Duerohub. Built for players who demand elite, verified Roblox scripts with zero fluff.
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-10">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+      {/* SEARCH & KATEGORI */}
+      <section className="mx-auto max-w-6xl px-5 py-12">
+        <div className="flex flex-col gap-6">
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Cari nama script atau game..."
-            className="input-brutal sm:max-w-sm"
+            className="w-full max-w-md border-4 border-black bg-white px-4 py-4 text-lg font-bold text-black placeholder:text-black/40 shadow-[8px_8px_0_0_#000] focus:outline-none"
           />
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-3">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`border-[3px] border-brutal-ink px-4 py-2 font-display text-xs uppercase tracking-wide transition-transform hover:-translate-y-0.5 ${
-                  activeCategory === cat
-                    ? "bg-brutal-ink text-white shadow-brutal-sm"
-                    : "bg-white shadow-brutal-sm"
+                className={`font-display border-4 border-black px-4 py-2 font-black uppercase tracking-wide shadow-[6px_6px_0_0_#000] transition-all active:translate-x-[6px] active:translate-y-[6px] active:shadow-none ${
+                  activeCategory === cat ? "bg-black text-white" : "bg-white text-black"
                 }`}
               >
                 {cat}
@@ -97,35 +95,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 pb-20">
+      {/* GRID KATALOG */}
+      <section className="mx-auto max-w-6xl px-5 pb-24">
         {filteredScripts.length === 0 ? (
-          <div className="card-brutal p-10 text-center">
-            <p className="font-display text-lg uppercase">Tidak ada script ditemukan</p>
-            <p className="mt-2 font-body text-sm text-brutal-ink/70">
+          <div className="border-4 border-black bg-white p-10 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <p className="font-display text-lg font-black uppercase">Tidak ada script ditemukan</p>
+            <p className="mt-2 font-bold text-black/70">
               Coba kata kunci lain atau pilih kategori berbeda.
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {filteredScripts.map((script) => (
-              <article key={script.id} className="card-brutal flex flex-col">
+              <article
+                key={script.id}
+                className="flex flex-col border-4 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              >
                 <div className="relative">
                   <img
                     src={getThumbnail(script.game)}
                     alt={script.game}
-                    className="h-40 w-full border-b-[3px] border-brutal-ink object-cover"
+                    className="h-40 w-full border-b-4 border-black object-cover"
                   />
                   <span
-                    className={`absolute left-3 top-3 border-[3px] border-brutal-ink px-2 py-1 font-display text-[10px] uppercase ${statusStyle[script.status]}`}
+                    className={`absolute left-3 top-3 border-4 border-black px-2 py-1 text-[10px] font-black uppercase ${statusStyle[script.status]}`}
                   >
                     {script.status}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col gap-2 p-5">
                   <h3 className="font-display text-lg uppercase leading-tight">{script.title}</h3>
-                  <p className="font-body text-sm text-brutal-ink/70">{script.game}</p>
-                  <p className="font-body text-sm text-brutal-ink/50">oleh {script.author}</p>
-                  <Link href={`/script/${script.id}`} className="btn-brutal mt-auto">
+                  <p className="font-bold text-black/70">{script.game}</p>
+                  <p className="text-sm font-bold text-black/50">oleh {script.author}</p>
+                  <Link
+                    href={`/script/${script.id}`}
+                    className="font-display mt-auto inline-flex items-center justify-center border-4 border-black bg-[#FFDF00] px-5 py-3 font-black uppercase tracking-wide text-black shadow-[6px_6px_0_0_#000] transition-all active:translate-x-2 active:translate-y-2 active:shadow-none"
+                  >
                     View Details
                   </Link>
                 </div>
