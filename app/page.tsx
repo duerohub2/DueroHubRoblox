@@ -22,14 +22,16 @@ const scripts: Script[] = [
   { id: "6", title: "Boss Radar", author: "Bagus", game: "Blox Fruits", status: "Verified" },
 ];
 
+// Dimensi gambar diperpendek (600x200) supaya teks bawaan placeholder ikut
+// mengecil secara proporsional saat kotaknya dipipihkan.
 const gameThumbnails: Record<string, string> = {
-  "Blox Fruits": "https://placehold.co/600x360/2F6FFF/FFFFFF?text=Blox+Fruits",
-  "Steal an Egg": "https://placehold.co/600x360/FF70A6/FFFFFF?text=Steal+an+Egg",
-  "Pet Simulator 99": "https://placehold.co/600x360/70C1B3/0B0B0B?text=Pet+Simulator+99",
-  "Anime Legends": "https://placehold.co/600x360/FF5757/FFFFFF?text=Anime+Legends",
-  "Mega Tycoon": "https://placehold.co/600x360/FFE500/0B0B0B?text=Mega+Tycoon",
+  "Blox Fruits": "https://placehold.co/600x200/2F6FFF/FFFFFF?text=Blox+Fruits",
+  "Steal an Egg": "https://placehold.co/600x200/FF70A6/FFFFFF?text=Steal+an+Egg",
+  "Pet Simulator 99": "https://placehold.co/600x200/70C1B3/0B0B0B?text=Pet+Simulator+99",
+  "Anime Legends": "https://placehold.co/600x200/FF5757/FFFFFF?text=Anime+Legends",
+  "Mega Tycoon": "https://placehold.co/600x200/FFE500/0B0B0B?text=Mega+Tycoon",
 };
-const fallbackThumbnail = "https://placehold.co/600x360/0B0B0B/FFFFFF?text=DUEROHUB";
+const fallbackThumbnail = "https://placehold.co/600x200/0B0B0B/FFFFFF?text=DUEROHUB";
 
 function getThumbnail(game: string) {
   return gameThumbnails[game] ?? fallbackThumbnail;
@@ -115,7 +117,7 @@ export default function HomePage() {
       </section>
 
       {/* GRID KATALOG */}
-      <section className="pb-20">
+      <section className="pb-16">
         <div className="mx-auto max-w-md p-3 sm:max-w-xl md:max-w-4xl md:p-6">
           {filteredScripts.length === 0 ? (
             <div className="border-4 border-black bg-white p-10 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -125,7 +127,7 @@ export default function HomePage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
               {filteredScripts.map((script, index) => {
                 const btn = cardButtonStyles[index % cardButtonStyles.length];
                 return (
@@ -137,21 +139,21 @@ export default function HomePage() {
                       <img
                         src={getThumbnail(script.game)}
                         alt={script.game}
-                        className="h-40 w-full border-b-4 border-black object-cover"
+                        className="h-24 w-full border-b-4 border-black object-cover sm:h-28"
                       />
                       <span
-                        className={`absolute left-3 top-3 border-4 border-black px-2 py-1 text-[10px] font-black uppercase ${statusStyle[script.status]}`}
+                        className={`absolute left-2 top-2 border-2 border-black px-1.5 py-0.5 text-[9px] font-black uppercase ${statusStyle[script.status]}`}
                       >
                         {script.status}
                       </span>
                     </div>
-                    <div className="flex flex-1 flex-col gap-2 p-5">
-                      <h3 className="font-display text-lg uppercase leading-tight">{script.title}</h3>
-                      <p className="font-bold text-black/70">{script.game}</p>
-                      <p className="text-sm font-bold text-black/50">oleh {script.author}</p>
+                    <div className="flex flex-1 flex-col gap-1.5 p-4">
+                      <h3 className="font-display text-base uppercase leading-tight">{script.title}</h3>
+                      <p className="text-sm font-bold text-black/70">{script.game}</p>
+                      <p className="text-xs font-bold text-black/50">oleh {script.author}</p>
                       <Link
                         href={`/script/${script.id}`}
-                        className={`font-display mt-auto inline-flex items-center justify-center border-4 border-black px-5 py-3 font-black uppercase tracking-wide shadow-[6px_6px_0_0_#000] transition-all active:translate-x-2 active:translate-y-2 active:shadow-none ${btn.bg} ${btn.text}`}
+                        className={`font-display mt-3 inline-flex items-center justify-center border-4 border-black px-4 py-2.5 text-sm font-black uppercase tracking-wide shadow-[6px_6px_0_0_#000] transition-all active:translate-x-2 active:translate-y-2 active:shadow-none ${btn.bg} ${btn.text}`}
                       >
                         View Details
                       </Link>
