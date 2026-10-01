@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Link from "next/link";
 
 const gameCategories = ["Blox Fruits", "Steal an Egg", "Pet Simulator 99", "Anime Legends", "Mega Tycoon"];
 
 export default function UploadPage() {
+  const isAuthenticated = false;
+
   const [title, setTitle] = useState("");
   const [game, setGame] = useState(gameCategories[0]);
   const [code, setCode] = useState("");
@@ -13,14 +16,40 @@ export default function UploadPage() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // TODO: kirim data ini ke API/database kamu di sini.
-    // Sengaja tidak ada input gambar — thumbnail diambil otomatis di halaman
-    // lain berdasarkan nilai `game`, lewat mapping di Admin Dashboard.
     console.log({ title, game, code });
     setSubmitted(true);
     setTitle("");
     setGame(gameCategories[0]);
     setCode("");
   };
+
+  if (!isAuthenticated) {
+    return (
+      <section className="flex min-h-screen items-center justify-center bg-brutal-page px-5 py-14">
+        <div className="w-full max-w-md border-4 border-black bg-[#FF5757] p-8 text-center text-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <h1 className="font-display text-3xl uppercase">Access Denied</h1>
+          <p className="mt-4 font-body text-sm">
+            You must log in or create an account to upload scripts.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/login"
+              className="flex-1 border-[3px] border-black bg-white px-5 py-3 font-display text-xs uppercase tracking-wide text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-transform hover:-translate-y-0.5"
+            >
+              Login
+            </Link>
+            {/* TODO: arahkan ke halaman register khusus begitu halaman itu dibuat */}
+            <Link
+              href="/login"
+              className="flex-1 border-[3px] border-black bg-black px-5 py-3 font-display text-xs uppercase tracking-wide text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-transform hover:-translate-y-0.5"
+            >
+              Create Account
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="mx-auto max-w-2xl px-5 py-14">
