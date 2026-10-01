@@ -2,25 +2,23 @@
 
 import { useState, FormEvent } from "react";
 
-const categories = ["Simulator", "Tycoon", "Fighting", "Horror", "Anime", "Roleplay", "Lainnya"];
+const gameCategories = ["Blox Fruits", "Steal an Egg", "Pet Simulator 99", "Anime Legends", "Mega Tycoon"];
 
 export default function UploadPage() {
   const [title, setTitle] = useState("");
-  const [game, setGame] = useState("");
-  const [category, setCategory] = useState(categories[0]);
-  const [description, setDescription] = useState("");
+  const [game, setGame] = useState(gameCategories[0]);
   const [code, setCode] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: kirim data ini ke API/database kamu di sini
-    console.log({ title, game, category, description, code });
+    // TODO: kirim data ini ke API/database kamu di sini.
+    // Sengaja tidak ada input gambar — thumbnail diambil otomatis di halaman
+    // lain berdasarkan nilai `game`, lewat mapping di Admin Dashboard.
+    console.log({ title, game, code });
     setSubmitted(true);
     setTitle("");
-    setGame("");
-    setCategory(categories[0]);
-    setDescription("");
+    setGame(gameCategories[0]);
     setCode("");
   };
 
@@ -28,7 +26,7 @@ export default function UploadPage() {
     <section className="mx-auto max-w-2xl px-5 py-14">
       <h1 className="font-display text-3xl uppercase sm:text-5xl">Upload Script</h1>
       <p className="mt-3 font-body text-brutal-ink/70">
-        Bagikan script buatanmu supaya bisa dipakai pemain lain.
+        Pilih kategori game — thumbnail terpasang otomatis, tanpa perlu upload gambar.
       </p>
 
       {submitted && (
@@ -53,54 +51,28 @@ export default function UploadPage() {
         </div>
 
         <div>
-          <label htmlFor="game" className="label-brutal">Nama Game</label>
-          <input
+          <label htmlFor="game" className="label-brutal">Kategori Game</label>
+          <select
             id="game"
-            type="text"
-            required
             value={game}
             onChange={(e) => setGame(e.target.value)}
-            placeholder="Contoh: Mega Tycoon"
-            className="input-brutal mt-2"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="category" className="label-brutal">Kategori</label>
-          <select
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
             className="input-brutal mt-2"
           >
-            {categories.map((cat) => (
+            {gameCategories.map((cat) => (
               <option key={cat} value={cat}>{cat}</option>
             ))}
           </select>
         </div>
 
         <div>
-          <label htmlFor="description" className="label-brutal">Deskripsi</label>
-          <textarea
-            id="description"
-            required
-            rows={3}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Jelaskan fungsi script ini secara singkat"
-            className="input-brutal mt-2"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="code" className="label-brutal">Kode Script</label>
+          <label htmlFor="code" className="label-brutal">Kode Lua</label>
           <textarea
             id="code"
             required
-            rows={8}
+            rows={10}
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            placeholder="Paste kode script Roblox kamu di sini..."
+            placeholder="Paste kode Lua kamu di sini..."
             className="input-brutal mt-2 font-mono text-sm"
           />
         </div>
