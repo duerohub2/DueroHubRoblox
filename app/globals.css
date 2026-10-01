@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #fff3da;
+}
+
+@layer components {
+  .btn-brutal {
+    @apply inline-flex items-center justify-center border-[3px] border-brutal-ink bg-brutal-yellow px-5 py-2.5 font-display text-xs uppercase tracking-wide text-brutal-ink shadow-brutal transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm;
+  }
+
+  .btn-brutal-alt {
+    @apply inline-flex items-center justify-center border-[3px] border-brutal-ink bg-white px-5 py-2.5 font-display text-xs uppercase tracking-wide text-brutal-ink shadow-brutal transition-transform duration-150 hover:-translate-y-0.5 hover:shadow-brutal-lg active:translate-y-0 active:shadow-brutal-sm;
+  }
+
+  .card-brutal {
+    @apply border-[3px] border-brutal-ink bg-white shadow-brutal;
+  }
+
+  .input-brutal {
+    @apply w-full border-[3px] border-brutal-ink bg-white px-4 py-3 font-body text-base text-brutal-ink placeholder:text-brutal-ink/40 focus:outline-none focus:shadow-brutal;
+  }
+
+  .label-brutal {
+    @apply font-display text-xs uppercase tracking-wide text-brutal-ink;
+  }
+}
