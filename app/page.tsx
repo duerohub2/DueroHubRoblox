@@ -22,8 +22,6 @@ const scripts: Script[] = [
   { id: "6", title: "Boss Radar", author: "Bagus", game: "Blox Fruits", status: "Verified" },
 ];
 
-// Dimensi gambar diperpendek (600x200) supaya teks bawaan placeholder ikut
-// mengecil secara proporsional saat kotaknya dipipihkan.
 const gameThumbnails: Record<string, string> = {
   "Blox Fruits": "https://placehold.co/600x200/2F6FFF/FFFFFF?text=Blox+Fruits",
   "Steal an Egg": "https://placehold.co/600x200/FF70A6/FFFFFF?text=Steal+an+Egg",
@@ -118,7 +116,7 @@ export default function HomePage() {
 
       {/* GRID KATALOG */}
       <section className="pb-16">
-        <div className="mx-auto max-w-md p-3 sm:max-w-xl md:max-w-4xl md:p-6">
+        <div className="mx-auto max-w-md px-4 py-3 sm:max-w-xl sm:px-5 md:max-w-4xl md:px-6 md:py-6">
           {filteredScripts.length === 0 ? (
             <div className="border-4 border-black bg-white p-10 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
               <p className="font-display text-lg font-black uppercase">Tidak ada script ditemukan</p>
@@ -127,7 +125,7 @@ export default function HomePage() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-x-6 gap-y-7 sm:grid-cols-2 md:grid-cols-3">
               {filteredScripts.map((script, index) => {
                 const btn = cardButtonStyles[index % cardButtonStyles.length];
                 return (
