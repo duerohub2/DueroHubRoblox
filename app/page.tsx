@@ -67,14 +67,6 @@ export default function HomePage() {
           <p className="mt-5 max-w-xl font-body text-base text-white/80 sm:text-lg">
             Duerohub. Built for players who demand elite, verified Roblox scripts with zero fluff.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link href="/upload" className="btn-brutal">
-              Upload Script
-            </Link>
-            <Link href="/admin" className="btn-brutal-alt">
-              Admin Dashboard
-            </Link>
-          </div>
         </div>
       </section>
 
