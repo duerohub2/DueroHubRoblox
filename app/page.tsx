@@ -73,30 +73,19 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="border-b-[8px] border-black bg-[#FFE500] py-10 md:py-14">
+      <section className="border-b-[8px] border-black bg-[#FFE500] py-12 md:py-16">
         <div className="mx-auto max-w-md p-3 sm:max-w-xl md:max-w-4xl md:p-6">
-          <h1 className="font-display text-6xl font-black uppercase leading-[0.9] tracking-tighter text-white [text-shadow:6px_6px_0px_#000,-2px_-2px_0_#000,2px_-2px_0_#000,-2px_2px_0_#000,2px_2px_0_#000] md:text-8xl">
+          <h1 className="font-display text-4xl font-black uppercase leading-[0.95] tracking-tighter text-white [text-shadow:6px_6px_0px_#000,-2px_-2px_0_#000,2px_-2px_0_#000,-2px_2px_0_#000,2px_2px_0_#000] sm:text-6xl md:text-8xl">
             DUEROHUB
           </h1>
-          <div className="mt-6 max-w-xl border-4 border-black bg-white p-5 text-base font-bold text-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] md:p-6 md:text-lg">
+          <div className="mt-8 max-w-xl border-4 border-black bg-white p-5 text-base font-bold text-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] md:p-6 md:text-lg">
             Duerohub. Built for players who demand elite, verified Roblox scripts with zero fluff.
-          </div>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <span className="border-4 border-black bg-[#FF70A6] px-3 py-1.5 font-display text-xs font-black uppercase text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              Verified Scripts
-            </span>
-            <span className="border-4 border-black bg-[#70C1B3] px-3 py-1.5 font-display text-xs font-black uppercase text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              Update Harian
-            </span>
-            <span className="border-4 border-black bg-white px-3 py-1.5 font-display text-xs font-black uppercase text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              100% Gratis
-            </span>
           </div>
         </div>
       </section>
 
       {/* SEARCH & KATEGORI */}
-      <section className="py-8 md:py-10">
+      <section className="py-10 md:py-12">
         <div className="mx-auto max-w-md p-3 sm:max-w-xl md:max-w-4xl md:p-6">
           <input
             type="text"
